@@ -1,0 +1,27 @@
+     else if(e.getSource()==ComboBox){
+                     
+                            try{
+                                	 
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectfinal", "root", "");
+				Statement stmt = con.createStatement();
+                                ResultSet rs =  stmt.executeQuery("SELECT * FROM patient_word WHERE  Name= '"Name"'");
+                              if(rs.next()){
+                              
+                              
+                                     String cm=rs.getString("Name");
+                                      duplicateJComboBox.addItem(cm);
+		
+				  	JOptionPane.showMessageDialog(this, "Duplicate name");
+                                      
+                                  }
+                                
+                         else 
+					  JOptionPane.showMessageDialog(this, " not Duplicate name");
+                                  
+                                  }
+				 
+                              }
+			       catch (Exception exp){
+                            	JOptionPane.showMessageDialog(this, "ShowAll_Information");}	
+                            }

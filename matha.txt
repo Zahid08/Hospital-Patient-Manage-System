@@ -1,0 +1,18 @@
+public void actionPerformed(ActionEvent e)
+	{	
+	 if (e.getSource()==delete){
+			String deleteName=deleteTexfiled.getText();
+			try{
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectfinal", "root", "");
+				Statement stmt = con.createStatement();
+				String sql = "DELETE FROM  patient_word  WHERE  patient_no='"+deleteName+"'";
+				stmt.executeUpdate(sql);
+			
+				JOptionPane.showMessageDialog(this,"Deleted 1 Row Succesfully !");
+				}
+			
+				catch (Exception ex) {
+				JOptionPane.showMessageDialog(this, "ShowAll_Information");}
+		}
+	}

@@ -1,0 +1,16 @@
+
+//auto increment 
+CREATE TABLE bachon(
+id int NOT NULL AUTO_INCREMENT,
+username varchar(30) NOT NULL,
+password varchar(20) NOT NULL,
+PRIMARY KEY(ID)
+
+
+)
+
+//auto oncrement date
+ALTER TABLE `patient_word` ADD `Admitdate` DATETIME on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `Word_no`; 
+//SELECT GETDATE() AS CurrentDateTime
+ALTER TABLE `mytable` 
+CHANGE COLUMN `DateTime` `DateTime` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ;

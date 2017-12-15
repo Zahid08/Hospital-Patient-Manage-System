@@ -1,0 +1,53 @@
+     else if(e.getSource()==ComboBox){
+                     
+                            try{
+                                	 
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectfinal", "root", "");
+				Statement stmt = con.createStatement();
+                                ResultSet rs =  stmt.executeQuery("SELECT count(*) FROM patient_word WHERE  Name= '"+patientName+"' ")
+				 int count=rs.getInt(1);
+                              if(count>1){
+                              
+                              	     ResultSet rs =  stmt.executeQuery("SELECT * FROM patient_word WHERE  Name= '"+patientName+"'");
+				     while(rs.next()!=null){
+                                     String cm=rs.getString("Name");
+                                      duplicateJComboBox.addItem(cm);
+				    }
+				  	JOptionPane.showMessageDialog(this, "Duplicate name");
+                                      
+                                  }
+                                
+                         else 
+					  JOptionPane.showMessageDialog(this, " not Duplicate name");
+                                  
+                                  }
+				 
+                              }
+			       catch (Exception exp){
+                            	JOptionPane.showMessageDialog(this, "ShowAll_Information");}	
+                            }
+
+
+
+
+
+tabinsir
+ehtesan
+
+
+
+
+
+
+
+
+
+SELECT COUNT(*) FROM  patient_word GROUP BY  Name HAVING  COUNT(*) > 1
+
+Statement s = conn.createStatement();
+ResultSet r = s.executeQuery("SELECT COUNT(*) AS rowcount FROM MyTable");
+r.next();
+int count = r.getInt("rowcount") ;
+r.close() ;
+System.out.println("MyTable has " + count + " row(s).");
